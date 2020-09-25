@@ -13,15 +13,15 @@ of PostgreSQL. However, it can be done without a full build.
 
 ## Build pgAudit as part of a full PostgreSQL build
 
-Download [the source code for PostgreSQL 12.1](https://www.postgresql.org/ftp/source/v12.1/).
+Download [the source code for PostgreSQL 13.0](https://www.postgresql.org/ftp/source/v13.0/).
 
 Unpack the full source tree somewhere on your build machine.
 
-Download the [source for pgAudit 1.4.0](https://github.com/pgaudit/pgaudit/releases).
+Download the [source for pgAudit 1.5.0](https://github.com/pgaudit/pgaudit/releases).
 
 Unpack this directly below the contrib subtree.
 
-See [Chapter 17](https://www.postgresql.org/docs/12/install-windows.html) in the documentation regarding this.
+See [Chapter 17](https://www.postgresql.org/docs/13/install-windows.html) in the documentation regarding this.
 [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/vs/community/) is a fine build environment
 to do the job. Make sure that Workload Desktop development with C++ is installed and that Windows 10 SDK is installed.
 
@@ -30,16 +30,18 @@ Install additional requirements as described in
 of the documentation. Not all are strictly needed for a default build.
 Start with installing Perl and try a default build with that. If that fails, then fix each failure and try again.
 
+Build from a x64 Native Tools Command Prompt for Visual Studio 2019.
+
 After a successful build, copy pgaudit.dll from Release\pgaudit and install using that.
 
 ## Install pgAudit from a full PostgreSQL build
 
 This assumes a PostgreSQL binary installation on Windows using default file locations.
 
-* Copy __pgaudit.dll__ to `C:\Program Files\PostgreSQL\12\lib`.
+* Copy __pgaudit.dll__ to `C:\Program Files\PostgreSQL\13\lib`.
   
-* Copy __pgaudit.control__ and __pgaudit--1.4.sql__ from the pgaudit distribution
-to `C:\Program Files\PostgreSQL\12\share\extension`.
+* Copy __pgaudit.control__ and __pgaudit--1.5.sql__ from the pgaudit distribution
+to `C:\Program Files\PostgreSQL\13\share\extension`.
 
 * Set `shared_preload_libraries = pgaudit` in postgresql.conf.
 
